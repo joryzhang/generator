@@ -14,10 +14,10 @@ public class MainTemplateConfig {
     //2，修改程序输出的信息
     //3.将循环改为单次读取(可选代码)
 
-    private String author;
+    private String author = "jory";
 
 
-    private String outputText;
+    private String outputText = "sum=";
 
     /**
      * 是否循环 loop(开关)

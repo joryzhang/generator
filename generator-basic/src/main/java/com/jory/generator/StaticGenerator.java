@@ -18,10 +18,7 @@ public class StaticGenerator {
 
     public static void main(String[] args) {
         String projectPath = System.getProperty("user.dir");//获取当前项目的根目录
-        System.out.println(projectPath);
-        //
         String inputPath = projectPath + File.separator+"generator-demo-projects"+ File.separator+"acm-template";//separator可以根据操作系统的不通更换不同的
-        System.out.println(inputPath);
         String outputPath = projectPath;
 
 
@@ -77,9 +74,6 @@ public class StaticGenerator {
         }else {
             //是文件 直接拷贝到目标目录下
             Path destPath = outputFile.toPath().resolve(inputFile.getName());
-            System.out.println(outputFile.toPath());
-            System.out.println(inputFile.toPath());
-            System.out.println(destPath);
             Files.copy(inputFile.toPath(),destPath, StandardCopyOption.REPLACE_EXISTING);
         }
     }
