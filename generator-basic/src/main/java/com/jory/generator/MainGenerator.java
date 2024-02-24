@@ -5,6 +5,7 @@ import freemarker.template.TemplateException;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 
 /**
  * @Author: Jory Zhang
@@ -21,13 +22,14 @@ public class MainGenerator {
         String outputPath = projectPath;
         //复制
         StaticGenerator.copyFilesByRecursive(inputPath,outputPath);
-
-        String dynamicInputPath= projectPath + File.separator + "generator-basic/src/main/resources/template/MainTemplate.java.ftl";
+        //generator-basic/
+        String dynamicInputPath= projectPath + File.separator + "src/main/resources/template/MainTemplate.java.ftl";
         String dynamicOutputPath= projectPath + File.separator + "acm-template/src/com/jory/acm/MainTemplate.java";
 
         //动态文件生成
         DynamicGenerator.doGenerator(dynamicInputPath,dynamicOutputPath,model);
 
     }
+
 
 }

@@ -13,7 +13,7 @@ import java.io.File;
 public class Main {
     public static void main(String[] args) {
         //测试
-//        args = new String[]{"generate","-l","-a","-o"};
+        args = new String[]{"generate","-l","-a","-o"};
 //        args = new String[]{"config"};
 //        args = new String[]{"list"};
 

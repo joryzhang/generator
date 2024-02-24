@@ -23,7 +23,7 @@ public class ListCommand implements Runnable{
         String projectPath = System.getProperty("user.dir");
         File parentFile = new File(projectPath).getParentFile();
         //输入路径
-        String inputPath = new File(parentFile,"generator/acm-template").getAbsolutePath();
+        String inputPath = new File(parentFile,"acm-template").getAbsolutePath();
         System.out.println(inputPath);
         List<File> files = FileUtil.loopFiles(inputPath);
         for (File file : files) {
