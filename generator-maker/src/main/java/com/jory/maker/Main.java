@@ -1,6 +1,6 @@
-package com.jory;
+package com.jory.maker;
 
-import com.jory.cli.CommandExecutor;
+import com.jory.maker.cli.CommandExecutor;
 
 import java.io.File;
 
