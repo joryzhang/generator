@@ -1,5 +1,6 @@
 package com.jory.maker.model;
 
+import cn.hutool.core.io.resource.ClassPathResource;
 import lombok.Data;
 
 /**

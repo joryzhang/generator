@@ -1,4 +1,4 @@
-package com.jory.maker.generator;
+package com.jory.maker.generator.file;
 
 import cn.hutool.core.io.FileUtil;
 import freemarker.template.Configuration;

@@ -18,16 +18,20 @@ public class MainGenerator {
         //静态文件生成
         String projectPath = System.getProperty("user.dir");//获取当前项目的根目录
         //
-        String inputPath = projectPath + File.separator+"generator-demo-projects"+ File.separator+"acm-template";//separator可以根据操作系统的不通更换不同的
+        String inputPath = projectPath + File.separator + "generator-demo-projects" + File.separator + "acm-template";//separator可以根据操作系统的不通更换不同的
         String outputPath = projectPath;
+        System.out.println(inputPath);
+        System.out.println("静态输出路径" + outputPath);
         //复制
-        StaticGenerator.copyFilesByRecursive(inputPath,outputPath);
+        StaticGenerator.copyFilesByRecursive(inputPath, outputPath);
         //generator-basic/
-        String dynamicInputPath= projectPath + File.separator + "src/main/resources/template/MainTemplate.java.ftl";
-        String dynamicOutputPath= projectPath + File.separator + "acm-template/src/com/jory/acm/MainTemplate.java";
+        String dynamicInputPath = projectPath + File.separator + "src/main/resources/template/MainTemplate.java.ftl";
+        String dynamicOutputPath = projectPath + File.separator + "acm-template/src/com/jory/acm/MainTemplate.java";
+        System.out.println("动态输入路径"+dynamicInputPath);
+        System.out.println("动态输出路径"+dynamicOutputPath);
 
         //动态文件生成
-        DynamicGenerator.doGenerator(dynamicInputPath,dynamicOutputPath,model);
+        DynamicGenerator.doGenerator(dynamicInputPath, dynamicOutputPath, model);
 
     }
 

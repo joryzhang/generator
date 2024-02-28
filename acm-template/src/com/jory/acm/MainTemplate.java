@@ -4,13 +4,12 @@ import java.util.Scanner;
 
 /**
  * ACM输入模板(多数之和)
- * @author jory
  */
 public class MainTemplate {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-    while(scanner.hasNext()) {
 
+        while(scanner.hasNext()) {
             //读取输入元素个数
             int n =  scanner.nextInt();
             //读取数组
@@ -25,9 +24,8 @@ public class MainTemplate {
                 sum+=num;
 
             }
-            System.out.println("aaaaa"+ sum);
+            System.out.println("Sum"+ sum);
         }
-
         scanner.close();
     }
 }

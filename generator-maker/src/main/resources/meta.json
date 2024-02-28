@@ -6,13 +6,13 @@
   "author": "jory",
   "createTime": "2024-02-27",
   "fileConfig": {
-    "inputRootPath": "C:/code/yuzi-generator/yuzi-generator-demo-projects/acm-template-pro",
+    "inputRootPath": "D:/IntelliJ IDEA/generator/generator/generator-demo-projects/acm-template-pro",
     "outputRootPath": "generated",
     "type": "dir",
     "files": [
       {
-        "inputPath": "src/com/yupi/acm/MainTemplate.java.ftl",
-        "outputPath": "src/com/yupi/acm/MainTemplate.java",
+        "inputPath": "src/com/jory/acm/MainTemplate.java.ftl",
+        "outputPath": "src/com/jory/acm/MainTemplate.java",
         "type": "file",
         "generateType": "dynamic"
       },
