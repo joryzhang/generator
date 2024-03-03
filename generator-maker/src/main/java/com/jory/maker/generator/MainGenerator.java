@@ -1,7 +1,6 @@
 package com.jory.maker.generator;
 
 import cn.hutool.core.io.FileUtil;
-import cn.hutool.core.io.resource.ClassPathResource;
 import cn.hutool.core.util.StrUtil;
 import com.jory.maker.generator.file.DynamicFileGenerator;
 import com.jory.maker.meta.Meta;
@@ -10,7 +9,7 @@ import freemarker.template.TemplateException;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Field;
+
 
 /**
  * @Author: Jory Zhang
@@ -28,6 +27,11 @@ public class MainGenerator {
         if (!FileUtil.exist(outputPath)) {
             FileUtil.mkdir(outputPath);
         }
+
+        //复制原始文件
+        String sourceRootPath = meta.getFileConfig().getSourceRootPath();
+        String sourceCopyDestPath = outputPath + File.separator + ".source";
+        FileUtil.copy(sourceRootPath, sourceCopyDestPath, false);
 
         //读取Resource文件
         String classPathResource = projectPath + File.separator + "src/main/resources";
@@ -101,6 +105,19 @@ public class MainGenerator {
         String shellOutputFilePath = outputPath + File.separator + "generator";
         String jarName = String.format("%s-%s-jar-with-dependencies.jar", meta.getName(), meta.getVersion());
         String jarPath = "target/" + jarName;
-        ScriptGenerator.doGenerate(shellOutputFilePath,jarPath);
+        ScriptGenerator.doGenerate(shellOutputFilePath, jarPath);
+
+        //生成精简版的程序(产物包)
+        String distOutputPath = outputPath + "-dist";
+        //拷贝Jar包
+        String targetAbsolutePath = distOutputPath + File.separator + "target";
+        FileUtil.mkdir(targetAbsolutePath);
+        String jarAbsolutePath = outputPath + File.separator + jarPath;
+        FileUtil.copy(jarAbsolutePath, targetAbsolutePath, true);
+        //拷贝脚本文件
+        FileUtil.copy(shellOutputFilePath, distOutputPath, true);
+        FileUtil.copy(shellOutputFilePath+".bat", distOutputPath , true);
+        //拷贝资源模板文件
+        FileUtil.copy(sourceCopyDestPath,distOutputPath,true);
     }
 }

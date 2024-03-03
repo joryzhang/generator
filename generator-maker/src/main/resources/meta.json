@@ -6,8 +6,9 @@
   "author": "jory",
   "createTime": "2024-02-27",
   "fileConfig": {
-    "inputRootPath": "D:/IntelliJ IDEA/generator/generator/generator-demo-projects/acm-template-pro",
+    "inputRootPath": ".source/acm-template-pro",
     "outputRootPath": "generated",
+    "sourceRootPath": "D:/IntelliJ IDEA/generator/generator/generator-demo-projects/acm-template-pro",
     "type": "dir",
     "files": [
       {
