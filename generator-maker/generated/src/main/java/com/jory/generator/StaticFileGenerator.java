@@ -1,4 +1,4 @@
-package com.jory.generator.file;
+package com.jory.generator;
 
 import cn.hutool.core.io.FileUtil;
 

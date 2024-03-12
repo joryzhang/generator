@@ -8,8 +8,6 @@ import com.jory.maker.generator.file.DynamicFileGenerator;
 import com.jory.maker.meta.Meta;
 import com.jory.maker.meta.MetaManager;
 import freemarker.template.TemplateException;
-import lombok.Data;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -95,6 +93,11 @@ public abstract class GenerateTemplate {
         outputFilePath = outputPathJavaPackagePath + File.separator + "model/DataModel.java";
         DynamicFileGenerator.doGenerator(inputFilePath, outputFilePath, meta);
 
+        //generator.FileGenerator
+        inputFilePath = classPathResource + File.separator + "template/java/generator/FileGenerator.java.ftl";
+        outputFilePath = outputPathJavaPackagePath + File.separator + "generator/FileGenerator.java";
+        DynamicFileGenerator.doGenerator(inputFilePath, outputFilePath, meta);
+
         // command.ConfigCommand
         inputFilePath = classPathResource + File.separator + "template/java/cli/command/ConfigCommand.java.ftl";
         outputFilePath = outputPathJavaPackagePath + File.separator + "cli/command/ConfigCommand.java";
@@ -123,11 +126,6 @@ public abstract class GenerateTemplate {
         //generator.StaticFileGenerator
         inputFilePath = classPathResource + File.separator + "template/java/generator/StaticFileGenerator.java.ftl";
         outputFilePath = outputPathJavaPackagePath + File.separator + "generator/StaticFileGenerator.java";
-        DynamicFileGenerator.doGenerator(inputFilePath, outputFilePath, meta);
-
-        //generator.FileGenerator
-        inputFilePath = classPathResource + File.separator + "template/java/generator/FileGenerator.java.ftl";
-        outputFilePath = outputPathJavaPackagePath + File.separator + "generator/FileGenerator.java";
         DynamicFileGenerator.doGenerator(inputFilePath, outputFilePath, meta);
 
         //template.pom

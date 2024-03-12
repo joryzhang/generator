@@ -11,6 +11,7 @@ import com.jory.maker.meta.enums.ModelTypeEnum;
 import java.io.File;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Author: Jory Zhang
@@ -40,6 +41,17 @@ public class MetaValidator {
             return;
         }
         for (Meta.ModelConfigDTO.ModelInfo modelInfo : modelInfoList) {
+            //为group时，不校验
+            String groupKey = modelInfo.getGroupKey();
+            if (StrUtil.isNotEmpty(groupKey)){
+                //生成中间参数“--author --outputText”
+                List<Meta.ModelConfigDTO.ModelInfo> subModelInfoList = modelInfo.getModels();
+                String allArgStr = subModelInfoList.stream()
+                        .map(subModelInfo -> String.format("\"--%s\"", subModelInfo.getFieldName()))
+                        .collect(Collectors.joining(", "));
+                modelInfo.setAllArgStr(allArgStr);
+                continue;
+            }
             String fieldName = modelInfo.getFieldName();
             if (StrUtil.isBlank(fieldName)) {
                 throw new MetaException("未填写 FieldName");
@@ -85,6 +97,13 @@ public class MetaValidator {
             return;
         }
         for (Meta.FileConfigDTO.FileInfo fileInfo : fileInfoList) {
+            String type = fileInfo.getType();
+            //如果是组 暂时先不校验
+            if (FileTypeEnum.GROUP.getValue().equals(type)){
+                continue;
+            }
+
+
             //inputPath 必填
             String inputPath = fileInfo.getInputPath();
             if (StrUtil.isBlank(inputPath)) {
@@ -94,7 +113,6 @@ public class MetaValidator {
             if (StrUtil.isEmpty(outputPath)) {
                 fileInfo.setOutputPath(inputPath);
             }
-            String type = fileInfo.getType();
             if (StrUtil.isEmpty(type)) {
                 //无文件后缀
                 if (StrUtil.isBlank(FileUtil.getSuffix(inputPath))) {

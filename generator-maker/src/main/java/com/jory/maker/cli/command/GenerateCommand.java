@@ -3,6 +3,7 @@ package com.jory.maker.cli.command;
 import cn.hutool.core.bean.BeanUtil;
 import com.jory.maker.generator.file.FileGenerator;
 import com.jory.maker.model.DataModel;
+import com.jory.maker.model.MainTemplate;
 import lombok.Data;
 import picocli.CommandLine;
 
