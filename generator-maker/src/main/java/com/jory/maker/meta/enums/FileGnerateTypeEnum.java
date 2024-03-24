@@ -7,7 +7,7 @@ package com.jory.maker.meta.enums;
  */
 public enum FileGnerateTypeEnum {
     DYNAMIC("动态", "dynamic"),
-    STATIC("静态", "STATIC");
+    STATIC("静态", "static");
 
     private final String text;
     private final String value;

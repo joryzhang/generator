@@ -24,6 +24,4 @@ public class DataModel {
      * 是否循环 loop(开关)
      */
     private boolean loop;
-
-
 }

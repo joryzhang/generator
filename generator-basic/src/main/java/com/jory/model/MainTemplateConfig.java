@@ -23,6 +23,4 @@ public class MainTemplateConfig {
      * 是否循环 loop(开关)
      */
     private boolean loop;
-
-
 }
